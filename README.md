@@ -5,3 +5,4 @@ Credit:
 	
 	Game Assets:
 	- 2D Pixel Art Spider Sprites by elthen https://elthen.itch.io/2d-pixel-art-spider-sprites 
+	- Mystic Woods cute RPG asset pack https://game-endeavor.itch.io/mystic-woods
