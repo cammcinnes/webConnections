@@ -2,7 +2,7 @@ extends CharacterBody2D
 var direction
 var player_chase = false
 var player
-@export var speed = 150
+@export var speed = 100
 
 const UP = Vector2(0, -1)
 const DOWN = Vector2(0, 1)
@@ -16,6 +16,7 @@ func _physics_process(delta):
 		velocity = direction * speed
 		move_and_collide(velocity * delta)
 	else:
+		move_and_collide(velocity * delta)
 		updateIdleAnimations()
 	updateMoveAnimations()
 	
@@ -36,6 +37,7 @@ func updateIdleAnimations():
 
 
 func _on_detection_area_body_entered(body):
+	print("entered")
 	player = body
 	player_chase = true
 

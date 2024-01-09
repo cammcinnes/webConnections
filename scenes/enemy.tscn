@@ -274,11 +274,12 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alj65"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rxtuc"]
-radius = 767.292
+[sub_resource type="CircleShape2D" id="CircleShape2D_smiid"]
+radius = 115.156
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_2bxwb")
+metadata/_edit_group_ = true
 
 [node name="human" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wxscs")
@@ -293,7 +294,7 @@ shape = SubResource("CapsuleShape2D_alj65")
 [node name="detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-shape = SubResource("CircleShape2D_rxtuc")
+shape = SubResource("CircleShape2D_smiid")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

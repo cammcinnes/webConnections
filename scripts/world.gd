@@ -11,7 +11,6 @@ func newGame():
 	$player.start()
 	
 func _on_enemy_timer_timeout():
-	
 	var human = enemy_scene.instantiate()
 	
 	var enemy_spawn = $enemy_path/enemy_spawn
@@ -21,5 +20,10 @@ func _on_enemy_timer_timeout():
 	human.direction = enemy_spawn.rotation + PI / 2
 
 	human.position = enemy_spawn.position
+		
+	human.player = $player
 	
+	var velocity = Vector2(100, 0.0)
+	human.velocity = velocity.rotated(human.direction)
+		
 	add_child(human)
