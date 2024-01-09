@@ -22,15 +22,11 @@ func _physics_process(delta):
 	
 	
 func updateMoveAnimations():
-	#if direction == UP:
-		$human.play("walk_up")
-	#elif direction == RIGHT:
-		#$human.play("walk_side")
-	#elif direction == LEFT:
-		#$human.play("walk_side")
-		#$human.flip_h = true;
-	#elif direction == DOWN:
-		#$human.play("walk_down")
+	$human.play("walk_right")
+	if velocity.x != 0:
+		$human.flip_h = velocity.x < 0
+	
+		
 
 func updateIdleAnimations():
 	pass

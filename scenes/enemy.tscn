@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bt4044qr6y6x5"]
+[gd_scene load_steps=45 format=3 uid="uid://bt4044qr6y6x5"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_2bxwb"]
 [ext_resource type="Texture2D" uid="uid://db3ad1cfdxe7j" path="res://sprites/player.png" id="1_xcnss"]
@@ -86,6 +86,30 @@ region = Rect2(192, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0y5pg"]
 atlas = ExtResource("1_xcnss")
 region = Rect2(240, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk4nj"]
+atlas = ExtResource("1_xcnss")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_driq1"]
+atlas = ExtResource("1_xcnss")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwhlg"]
+atlas = ExtResource("1_xcnss")
+region = Rect2(96, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dh32"]
+atlas = ExtResource("1_xcnss")
+region = Rect2(144, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svvsg"]
+atlas = ExtResource("1_xcnss")
+region = Rect2(192, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbmlx"]
+atlas = ExtResource("1_xcnss")
+region = Rect2(240, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_llcs6"]
 atlas = ExtResource("1_xcnss")
@@ -227,6 +251,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qk4nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_driq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwhlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dh32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svvsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbmlx")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_llcs6")
 }, {
 "duration": 1.0,
@@ -245,7 +292,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_xpkx3")
 }],
 "loop": true,
-"name": &"walk_side",
+"name": &"walk_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -283,7 +330,7 @@ metadata/_edit_group_ = true
 
 [node name="human" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wxscs")
-animation = &"walk_side"
+animation = &"walk_right"
 
 [node name="body_area" type="Area2D" parent="."]
 

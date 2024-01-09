@@ -18,7 +18,7 @@ func _on_enemy_timer_timeout():
 	enemy_spawn.progress_ratio = randf()
 	
 	human.direction = enemy_spawn.rotation + PI / 2
-
+	
 	human.position = enemy_spawn.position
 		
 	human.player = $player
