@@ -14,8 +14,6 @@ func _physics_process(delta):
 	if player_chase:
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
-	else:
-		updateIdleAnimations()
 	updateMoveAnimations()
 	move_and_slide()
 	
@@ -26,13 +24,7 @@ func updateMoveAnimations():
 		$human.flip_h = velocity.x < 0
 	
 		
-
-func updateIdleAnimations():
-	pass
-
-
 func _on_detection_area_body_entered(body):
-	print("entered")
 	player = body
 	player_chase = true
 

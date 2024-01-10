@@ -12,6 +12,8 @@ func _ready():
 	self.visible = false
 	$spider.play("idle_right")
 	position = Vector2(320, 180)
+	$web.visible = false
+	$web.enabled = false
 	start()
 
 # Called when start button is hit
@@ -20,10 +22,13 @@ func start():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	look_at(get_global_mouse_position())
 	# Movement
 	move_player(delta)
 	# Animations
 	update_animations()
+	
+	fire_web()
 
 func move_player(delta):
 	var input_direction = Vector2(
@@ -40,3 +45,11 @@ func move_player(delta):
 	
 func update_animations():
 	pass
+	
+func fire_web():
+	if Input.is_action_pressed("fire_web"):
+		$web.visible = true
+		$web.enabled = true
+	if Input.is_action_just_released("fire_web"):
+		$web.visible = false
+		$web.enabled = false

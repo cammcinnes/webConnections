@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://gurhl7hkmpvp"]
+[gd_scene load_steps=34 format=3 uid="uid://gurhl7hkmpvp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_cavxj"]
 [ext_resource type="Texture2D" uid="uid://d00k0awv06ykg" path="res://sprites/Spider Sprite Sheet.png" id="1_hwfhk"]
+[ext_resource type="PackedScene" uid="uid://577h88j7kw24" path="res://scenes/web.tscn" id="3_1xuqn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55fly"]
 atlas = ExtResource("1_hwfhk")
@@ -231,10 +232,12 @@ z_index = 1
 collision_mask = 3
 script = ExtResource("1_cavxj")
 
+[node name="web" parent="." instance=ExtResource("3_1xuqn")]
+position = Vector2(0, 12)
+
 [node name="spider" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xc6wa")
 animation = &"idle_right"
-frame_progress = 0.411
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
