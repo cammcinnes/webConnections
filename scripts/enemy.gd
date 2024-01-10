@@ -14,11 +14,10 @@ func _physics_process(delta):
 	if player_chase:
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
-		move_and_collide(velocity * delta)
 	else:
-		move_and_collide(velocity * delta)
 		updateIdleAnimations()
 	updateMoveAnimations()
+	move_and_slide()
 	
 	
 func updateMoveAnimations():
@@ -41,3 +40,5 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false;
+
+

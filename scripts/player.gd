@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 100
+var speed = 110
 var direction
 
 const UP = Vector2(0, -1)
@@ -21,22 +21,22 @@ func start():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	# Movement
-	move_player()
+	move_player(delta)
 	# Animations
 	update_animations()
 
-func move_player():
+func move_player(delta):
 	var input_direction = Vector2(
 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 	Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
-	velocity = input_direction * speed
+	velocity = input_direction.normalized() * speed
 
 	# Update direction based on input
 	if input_direction.length_squared() > 0:
 		direction = input_direction.normalized()
 	
-	move_and_slide()
+	move_and_collide(velocity * delta)
 	
 func update_animations():
 	pass

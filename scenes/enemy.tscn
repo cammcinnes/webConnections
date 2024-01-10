@@ -319,12 +319,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alj65"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_smiid"]
 radius = 115.156
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4wnd0"]
+radius = 7.0
+height = 26.0
+
 [node name="enemy" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_2bxwb")
 metadata/_edit_group_ = true
 
@@ -332,16 +337,14 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_wxscs")
 animation = &"walk_right"
 
-[node name="body_area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body_area"]
-position = Vector2(-1, 7)
-shape = SubResource("CapsuleShape2D_alj65")
-
 [node name="detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_smiid")
+
+[node name="collision_area" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_4wnd0")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
